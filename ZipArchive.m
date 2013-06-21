@@ -290,7 +290,7 @@
             filename[fileInfo.size_filename] = '\0';
             
             // check if it contains directory
-            NSString * strPath = [NSString stringWithCString:filename encoding:NSASCIIStringEncoding];
+            NSString * strPath = [NSString stringWithCString:filename encoding:NSUTF8StringEncoding];
             BOOL isDirectory = NO;
             if( filename[fileInfo.size_filename-1]=='/' || filename[fileInfo.size_filename-1]=='\\')
                 isDirectory = YES;
@@ -453,7 +453,7 @@
         filename[fileInfo.size_filename] = '\0';
         
         // check if it contains directory
-        NSString * strPath = [NSString stringWithCString:filename encoding:NSASCIIStringEncoding];
+        NSString * strPath = [NSString stringWithCString:filename encoding:NSUTF8StringEncoding];
         free( filename );
         if( [strPath rangeOfCharacterFromSet:[NSCharacterSet characterSetWithCharactersInString:@"/\\"]].location!=NSNotFound )
         {// contains a path
